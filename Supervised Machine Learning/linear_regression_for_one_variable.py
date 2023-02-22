@@ -73,19 +73,21 @@ def main():
     # print(x_train.shape[0],y_train.shape[0])
     # x_train=np.array([158.0,166.0,163.0,165.0,167.0,170.0,167.0,172.0,177.0,181.0])# height of fathers
     # y_train=np.array([163.0,158.0,167.0,170.0,160.0,180.0,170.0,175.0,172.0,175.0]) # height of sons
+    # x_train=x_train/100
+    # y_train=y_train/100
     w_initial=0
     b_initial=0
     alpha=0.01
     iter=10000
     w_final,b_final,j_history,p_history=gradient_descent(x_train,y_train,w_initial,b_initial,alpha,iter)
     print(f"(w,b) found by gradient descent: ({w_final:8.4f},{b_final:8.4f})")
+    # y=w_final*0.164+b_final
+    # print("Height of son is ",y)
     fig,ax=plt.subplots()
     ax.plot(x_train,compute(x_train,w_final,b_final))
     scatter = ax.scatter(x_train,y_train,marker='X')
     plt.show()
     # If height of father is 164cm (x)
     # height of son is (y)
-    # y=w_final*164+b_final
-    # print("Height of son is ",y)
 
 main()
